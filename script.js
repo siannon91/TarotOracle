@@ -22,3 +22,10 @@ function renderArchive() {
         archiveContainer.appendChild(cardDiv);
     });
 }
+
+document.getElementById('spread-btn').addEventListener('click', () => {
+    document.getElementById('spread-section').style.display = 'block';
+    document.getElementById('archive-section').style.display = 'none';
+});
+
+fetchTarotData();
