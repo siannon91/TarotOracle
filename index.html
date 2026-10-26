@@ -4,23 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Tarot Oracle</h1>
         <nav>
-            <ul>
-                <li>Daily Spread</li>
-                <li>Tarot Archive</li>
-            </ul>
+            <button id="spread-btn">Daily Spread</button>
+            <button id="archive-btn">Tarot Archive</button>
         </nav>
     </header>
     
     <main>
         <section id="spread-section">
             <h2>Spread</h2>
+            <select id="deck-select">
+                <option value="all">Full Tarot Deck</option>
+                <option value="major">Major Arcana Only</option>
+            </select>
+            <button id="draw-btn">Draw Spread</button>
         
-
             <div id="spread-container"></div>
         </section>
 
