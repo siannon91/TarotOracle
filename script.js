@@ -17,8 +17,14 @@ function renderArchive() {
     archiveContainer.innerHTML = '';
 
     tarotData.forEach(card => {
+        const imageUrl = getTarotImage(card);
         const cardDiv = document.createElement('div');
-        cardDiv.innerHTML = `<h3>${card.name}</h3><p>${card.meaning_up}</p>`;
+        cardDiv.innerHTML = `
+        <img src="${imageUrl}" alt="${card.name}" width="100" style="border-radius: 6px; margin-bottom: 5px;">
+        <h3>${card.name}</h3>
+        <p>${card.meaning_up}</p>
+        <hr style="margin: 15px 0;">
+        `;
         archiveContainer.appendChild(cardDiv);
     });
 }
