@@ -40,7 +40,7 @@ function renderArchive() {
         const imageUrl = getTarotImage(card);
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
-        <img src="${imageUrl}" alt="${card.name}" width="100" style="border-radius: 6px; border: 1px solid gold; margin-bottom: 5px;">
+        <img src="${imageUrl}" alt="${card.name}" width="100px" style="border-radius: 6px; border: 1px solid gold; margin-bottom: 5px;">
         <h3>${card.name}</h3>
         <p>${card.meaning_up}</p>
         `;
@@ -116,13 +116,13 @@ async function handleDrawSpread() {
         }
         
         spreadContainer.innerHTML = '';
-        const positions = ["Past", "Present", "Future"];
+        const positions = ["PAST", "PRESENT", "FUTURE"];
         cardsToDisplay.forEach((card, index) => {
             const imageUrl = getTarotImage (card);
             const cardDiv = document.createElement('div');
             cardDiv.innerHTML = `
             <h4>${positions[index]}</h4>
-            <img src="${imageUrl}" alt="${card.name}" width="200" style="border-radius: 8px; border: 1px solid gold">
+            <img src="${imageUrl}" alt="${card.name}" width="200px" style="border-radius: 8px;">
             <h3>${card.name}</h3>
             <p>${card.meaning_up}</p>
             `;

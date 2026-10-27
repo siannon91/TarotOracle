@@ -32,8 +32,9 @@ nav {
     color: white;
     border: 1px solid #ffd700;
     cursor: pointer;
-    transition: all 0.5 ease;
+    transition: all 0.3s ease;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
 }
 
 nav button:hover {
@@ -41,6 +42,13 @@ nav button:hover {
     color: #0f0c29;
     box-shadow: 0 0 10px #ffd700;
     transform: scale(1.02);
+}
+
+h2 {
+    color: #371c45;
+    font-size: 2rem;
+    margin: 30px 0 10px 0;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 section {
@@ -65,3 +73,40 @@ select, #draw-btn {
     font-family: Georgia, 'Times New Roman', Times, serif;
     cursor: pointer;
 }
+
+#archive-container > div, #spread-container > div {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(83, 35, 101, 0.71);
+    border: 1px solid #371c45;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(40, 17, 48, 0.71);
+    transition: transform 0.3s ease;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#archive-container > div:hover, #spread-container > div:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 20px rgba(40, 17, 48, 0.71);
+}
+
+img {
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px 0;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 7px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    color: white;
+}
+
