@@ -14,20 +14,31 @@ async function fetchTarotData() {
 
 function renderArchive() {
     const archiveContainer = document.getElementById('archive-container');
+    const filterValue = document.getElementById('archive-filter').value;
     archiveContainer.innerHTML = '';
 
-    tarotData.forEach(card => {
+    let filteredCards = tarotData;
+
+    if (filterValue === 'major') {
+        filteredCards = tarotData.filter(card => card.type === 'major');
+    } else if (filterValue !== 'all') {
+        filteredCards = tarotData.filter(card => card.suit === filterValue);
+    }
+    
+
+    filteredCards.forEach(card => {
         const imageUrl = getTarotImage(card);
         const cardDiv = document.createElement('div');
         cardDiv.innerHTML = `
         <img src="${imageUrl}" alt="${card.name}" width="100" style="border-radius: 6px; margin-bottom: 5px;">
         <h3>${card.name}</h3>
         <p>${card.meaning_up}</p>
-        <hr style="margin: 15px 0;">
         `;
         archiveContainer.appendChild(cardDiv);
     });
 }
+
+document.getElementById('archive-filter').addEventListener('change', renderArchive);
 
 document.getElementById('spread-btn').addEventListener('click', () => {
     document.getElementById('spread-section').style.display = 'block';
