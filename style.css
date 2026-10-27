@@ -110,3 +110,14 @@ h4 {
     color: white;
 }
 
+details summary {
+    user-select: none;
+    transition: color 0.2s ease;
+    font-size: 14px;
+    margin: 10px;
+
+}
+
+details summary:hover {
+    color: white;
+}

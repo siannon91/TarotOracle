@@ -42,7 +42,10 @@ function renderArchive() {
         cardDiv.innerHTML = `
         <img src="${imageUrl}" alt="${card.name}" width="100px" style="border-radius: 6px; border: 1px solid gold; margin-bottom: 5px;">
         <h3>${card.name}</h3>
-        <p>${card.meaning_up}</p>
+        <details>
+            <summary style="outline: none;">Show meaning</summary>
+            <p>${card.meaning_up}</p>
+        </details>
         `;
         archiveContainer.appendChild(cardDiv);
     });
