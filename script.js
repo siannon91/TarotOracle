@@ -25,6 +25,16 @@ function renderArchive() {
         filteredCards = tarotData.filter(card => card.suit === filterValue);
     }
     
+    const weightMap = {
+        'ace': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
+        '10': 10, 'page': 11, 'knight': 12, 'queen': 13, 'king': 14
+    };
+
+    filteredCards.sort((a, b) => {
+        let weightA = weightMap[a.value.toLowerCase()] || a.value_int || 0;
+        let weightB = weightMap[b.value.toLowerCase()] || b.value_int || 0;
+        return weightA - weightB;
+    });
 
     filteredCards.forEach(card => {
         const imageUrl = getTarotImage(card);
