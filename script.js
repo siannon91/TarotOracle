@@ -52,9 +52,26 @@ function getTarotImage (card) {
         if (card.suit === 'cups') suitCode = 'cu';
         if (card.suit === 'swords') suitCode = 'sw';
         if (card.suit === 'pentacles') suitCode = 'pe';
+
+        let identifier = '';
+        const valLower = card.value.toLowerCase();
+
+
+        if (valLower === 'ace' || valLower === '1') {
+            identifier = 'ac';
+        } else if (valLower === 'page') {
+            identifier = 'pa';
+        } else if (valLower === 'knight') {
+            identifier = 'kn';
+        } else if (valLower === 'queen') {
+            identifier = 'qu';
+        } else if (valLower === 'king') {
+            identifier = 'ki';
+        } else {
+            identifier = String(card.value_int).padStart(2, '0');
+        }
         
-        const num = String(card.value_int).padStart(2, '0');
-        return `https://sacred-texts.com/tarot/pkt/img/${suitCode}${num}.jpg`;
+        return `https://sacred-texts.com/tarot/pkt/img/${suitCode}${identifier}.jpg`;
     }
 }
 
