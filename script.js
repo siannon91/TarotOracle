@@ -39,10 +39,11 @@ function renderArchive() {
     filteredCards.forEach(card => {
         const imageUrl = getTarotImage(card);
         const cardDiv = document.createElement('div');
+
         cardDiv.innerHTML = `
-        <img src="${imageUrl}" alt="${card.name}" width="100px" style="border-radius: 6px; border: 1px solid gold; margin-bottom: 5px;">
+        <img src="${imageUrl}" alt="${card.name}" width="150px" style="border-radius: 6px; border: 1px solid gold; margin-bottom: 5px;">
         <h3>${card.name}</h3>
-        <details>
+        <details name= "tarot-archive-group">
             <summary style="outline: none;">Show meaning</summary>
             <p>${card.meaning_up}</p>
         </details>
@@ -120,12 +121,22 @@ async function handleDrawSpread() {
         
         spreadContainer.innerHTML = '';
         const positions = ["PAST", "PRESENT", "FUTURE"];
+        const backImage = "./img/retro.jpg";
+
         cardsToDisplay.forEach((card, index) => {
             const imageUrl = getTarotImage (card);
             const cardDiv = document.createElement('div');
+        
             cardDiv.innerHTML = `
             <h4>${positions[index]}</h4>
-            <img src="${imageUrl}" alt="${card.name}" width="200px" style="border-radius: 8px;">
+
+            <div class="card-flip-container">
+                <div class="card-flipper" style="animation-delay: ${index * 0.6}s;">
+                    <img src="${backImage}" alt="card back" class="card-img-face card-img-back">
+                    <img src="${imageUrl}" alt="${card.name}" class="card-img-face card-img-front">
+                </div>
+            </div>
+
             <h3>${card.name}</h3>
             <p>${card.meaning_up}</p>
             `;
