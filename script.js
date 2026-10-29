@@ -104,7 +104,6 @@ async function handleDrawSpread() {
     const spreadContainer = document.getElementById('spread-container');
     const deckChoice = document.getElementById('deck-select').value;
     
-    spreadContainer.innerHTML = `<p>Consulting the Oracle...</p>`;
     
     try {
         let cardsToDisplay = [];
@@ -121,20 +120,17 @@ async function handleDrawSpread() {
         
         spreadContainer.innerHTML = '';
         const positions = ["PAST", "PRESENT", "FUTURE"];
-        const backImage = "./img/retro.jpg";
 
         cardsToDisplay.forEach((card, index) => {
             const imageUrl = getTarotImage (card);
             const cardDiv = document.createElement('div');
+            cardDiv.className = 'spread-card-slot';
         
             cardDiv.innerHTML = `
             <h4>${positions[index]}</h4>
 
             <div class="card-flip-container">
-                <div class="card-flipper" style="animation-delay: ${index * 0.6}s;">
-                    <img src="${backImage}" alt="card back" class="card-img-face card-img-back">
-                    <img src="${imageUrl}" alt="${card.name}" class="card-img-face card-img-front">
-                </div>
+                    <img src="${imageUrl}" alt="${card.name}" class="card-reveal-anim card-img-front" style="animation-delay: ${index * 0.6}s;">
             </div>
 
             <h3>${card.name}</h3>
