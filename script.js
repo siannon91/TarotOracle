@@ -57,13 +57,19 @@ document.getElementById('archive-filter').addEventListener('change', renderArchi
 document.getElementById('spread-btn').addEventListener('click', () => {
     document.getElementById('spread-section').style.display = 'block';
     document.getElementById('archive-section').style.display = 'none';
+    document.getElementById('home-section').style.display = 'none';
 });
 
 document.getElementById('archive-btn').addEventListener('click', () => {
     document.getElementById('spread-section').style.display = 'none';
     document.getElementById('archive-section').style.display = 'block';
+    document.getElementById('home-section').style.display = 'none';
     resetSpreadToDefault();
 });
+
+document.getElementById('back-to-home-spread').addEventListener('click', goToHome);
+document.getElementById('back-to-home-archive').addEventListener('click', goToHome);
+
 
 
 function getTarotImage (card) {
@@ -181,6 +187,12 @@ function resetSpreadToDefault() {
     }
 }
 
+function goToHome() {
+    document.getElementById('home-section').style.display = 'block';
+    document.getElementById('spread-section').style.display = 'none';
+    document.getElementById('archive-section').style.display = 'none';
+    resetSpreadToDefault();
+}
 
 document.getElementById('draw-btn').addEventListener('click', handleDrawSpread);
 

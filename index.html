@@ -10,22 +10,33 @@
 <body>
     <header>
         <h1>Tarot Oracle</h1>
-        <nav>
-            <button id="spread-btn">Daily Spread</button>
-            <button id="archive-btn">Tarot Archive</button>
-        </nav>
     </header>
    
     <main>
-        <section id="spread-section">
-            <h2>Spread</h2>
+
+        <section id="home-section">
+            <h2>Welcome to the Oracle</h2>
+            <p>Choose your path of divination or explore the archive</p>
+            <div>
+                <button id="spread-btn">Daily Spread</button>
+                <button id="archive-btn">Tarot Archive</button>
+            </div>
+        </section>
+
+        <section id="spread-section" style="display: none;">
+            <div>
+                <button id="back-to-home-spread">Home</button>
+                <h2>Spread</h2>
+                <div></div>
+            </div>
+
             <select id="deck-select">
                 <option value="all">Full Tarot Deck</option>
                 <option value="major">Major Arcana Only</option>
             </select>
             <button id="draw-btn">Draw Spread</button>
         
-            <div id="spread-container">
+            <div id="spread-container" style="display: none;">
                 <div class="spread-card-slot">
                     <h4>PAST</h4>
                     <div class="card-flip-container">
@@ -56,7 +67,12 @@
         </section>
 
         <section id="archive-section" style="display: none;">
-            <h2>Tarot Archive</h2>
+            <div>
+                <button id="back-to-home-archive">Home</button>
+                <h2>Tarot Archive</h2>
+                <div></div>
+            </div>
+            
             <div>
                 <label for="archive-filter">Filter by: </label>
                 <select id="archive-filter">
