@@ -101,7 +101,7 @@ function getTarotImage (card) {
 }
 
 async function handleDrawSpread() {
-    const spreadContainer = document.getElementById('spread-container');
+    const drawBtn = document.getElementById('draw-btn');
     const deckChoice = document.getElementById('deck-select').value;
     
     
@@ -118,30 +118,37 @@ async function handleDrawSpread() {
             cardsToDisplay = data.cards;
         }
         
-        spreadContainer.innerHTML = '';
-        const positions = ["PAST", "PRESENT", "FUTURE"];
+        const slots = document.querySelectorAll('.spread-card-slot');
 
         cardsToDisplay.forEach((card, index) => {
             const imageUrl = getTarotImage (card);
-            const cardDiv = document.createElement('div');
-            cardDiv.className = 'spread-card-slot';
-        
-            cardDiv.innerHTML = `
-            <h4>${positions[index]}</h4>
+            const slot = slots[index];
 
-            <div class="card-flip-container">
-                    <img src="${imageUrl}" alt="${card.name}" class="card-reveal-anim card-img-front" style="animation-delay: ${index * 0.6}s;">
-            </div>
+            if (slot) {
+                const imgElement = slot.querySelector('.card-flip-container img');
+                const titleElement = slot.querySelector('h3');
+                const pElement = slot.querySelector('p');
+                const startDelay = index * 600;
 
-            <h3>${card.name}</h3>
-            <p>${card.meaning_up}</p>
-            `;
-            spreadContainer.appendChild(cardDiv);
+                setTimeout(() => {
+                    imgElement.className = 'card-reveal-anim';
+                    setTimeout(() => {
+                        imgElement.src = imageUrl;
+                        imgElement.alt = card.name;
+                    }, 400);
+                    setTimeout(() => {
+                        if (titleElement) titleElement.textContent = card.name;
+                        if (pElement) pElement.textContent = card.meaning_up;
+                    }, 400);
+                }, startDelay);
+            }
             
         });
+
+        drawBtn.textContent = "New Spread";
+
     } catch (error) {
         console.error("Error drawing spread:", error);
-        spreadContainer.innerHTML = `<p>Failed to draw spread. Please try again.</p>`;
     }
 }
 

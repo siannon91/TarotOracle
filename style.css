@@ -142,18 +142,6 @@ details summary:hover {
     color: white;
 }
 
-/*.spread-card-slot {
-    text-align: center;
-    padding: 15px;
-    background-color: rgba(83, 35, 101, 0.71);
-    border: 1px solid #371c45;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(40, 17, 48, 0.71);
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 220px;
-    overflow: hidden;
-}*/
-
 .card-flip-container {
     perspective: 1000px;
     width: 140px;
@@ -179,11 +167,12 @@ details summary:hover {
 
 @keyframes revealCard {
     0% {
-        transform: rotateY(180sdeg) scale(0.9);
-        opacity: 0;
+        transform: rotateY(0deg) scale(1);
+    }
+    50% {
+        transform: rotateY(90deg) scale(0.9);
     }
     100% {
         transform: rotateY(0deg) scale(1);
-        opacity: 1;
     }
 }
