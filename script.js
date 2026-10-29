@@ -62,6 +62,7 @@ document.getElementById('spread-btn').addEventListener('click', () => {
 document.getElementById('archive-btn').addEventListener('click', () => {
     document.getElementById('spread-section').style.display = 'none';
     document.getElementById('archive-section').style.display = 'block';
+    resetSpreadToDefault();
 });
 
 
@@ -134,7 +135,7 @@ async function handleDrawSpread() {
                     imgElement.classList.remove('card-reveal-anim');
                     void imgElement.offsetWidth; // forza il reflow del browser affinche' parti una nuova animazione al click del bottone
                     imgElement.classList.add('card-reveal-anim');
-                    
+
                     setTimeout(() => {
                         imgElement.src = imageUrl;
                         imgElement.alt = card.name;
@@ -155,6 +156,31 @@ async function handleDrawSpread() {
         console.error("Error drawing spread:", error);
     }
 }
+
+function resetSpreadToDefault() {
+    const slots = document.querySelectorAll('.spread-card-slot');
+    const drawBtn = document.getElementById('draw-btn');
+
+    slots.forEach(slot => {
+        const imgElement = slot.querySelector('.card-flip-container img');
+        const titleElement = slot.querySelector('.card-name');
+        const pElement = slot.querySelector('.card-meaning');
+
+        if (imgElement) {
+            imgElement.classList.remove('card-reveal-anim');
+            imgElement.src = "img/retro.jpg";
+            imgElement.alt = "Card back";
+        }
+
+        if (titleElement) titleElement.textContent = ""; 
+        if (pElement) pElement.textContent = "";
+    });
+
+    if (drawBtn) {
+        drawBtn.textContent = "Draw Spread";
+    }
+}
+
 
 document.getElementById('draw-btn').addEventListener('click', handleDrawSpread);
 
