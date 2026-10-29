@@ -126,20 +126,24 @@ async function handleDrawSpread() {
 
             if (slot) {
                 const imgElement = slot.querySelector('.card-flip-container img');
-                const titleElement = slot.querySelector('h3');
-                const pElement = slot.querySelector('p');
+                const titleElement = slot.querySelector('.card-name');
+                const pElement = slot.querySelector('.card-meaning');
                 const startDelay = index * 600;
 
                 setTimeout(() => {
-                    imgElement.className = 'card-reveal-anim';
+                    imgElement.classList.remove('card-reveal-anim');
+                    void imgElement.offsetWidth; // forza il reflow del browser affinche' parti una nuova animazione al click del bottone
+                    imgElement.classList.add('card-reveal-anim');
+                    
                     setTimeout(() => {
                         imgElement.src = imageUrl;
                         imgElement.alt = card.name;
                     }, 400);
+
                     setTimeout(() => {
                         if (titleElement) titleElement.textContent = card.name;
                         if (pElement) pElement.textContent = card.meaning_up;
-                    }, 400);
+                    }, 450);
                 }, startDelay);
             }
             
