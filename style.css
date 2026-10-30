@@ -6,39 +6,56 @@
 
 body {
     background-image: url(./img/sfond.jpg);
-    font-family: 'Georgia, Times New Roman, Times, serif';
+    font-family: garamond;
     background-repeat: repeat;
     background-size: 500px;
 }
 
+header {
+    background-color: #17011c ;
+} 
+
 h1 {
-    color: #4a154b;
-    font-size: 5rem;
+    color: white;
+    font-size: 8rem;
     
     max-width: 1000px;
-    margin: auto;
-    font-weight: 500;
-    text-align: center;
+    font-weight: 100;
     padding: 80px;
-    text-shadow: 0 0 8px rgba(255, 215, 0, 0.9);
+    text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7);
 }
 
-nav {
+h1::first-letter {
+    font-size: 11rem;
+}
+
+#home-section {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    text-align: center;
+    background-color: #4a154b65;
+    width: 500px;
+    height: 700px;
+    margin: 50px auto;
+
+}
+
+.scelta {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 
 #spread-btn, #archive-btn {
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 100px 50px;
+    border-radius: 5px;
     background-color: #4a154b;
     color: white;
     border: 1px solid #ffd700;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 1rem;
+    font-family: garamond;
+    font-size: 25px;
 }
 
 nav button:hover {
@@ -57,7 +74,7 @@ h2 {
 
 label {
     color: #4a154b;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: garamond;
     margin-right: 10px;
 }
 
@@ -88,7 +105,7 @@ select, #draw-btn {
     border-radius: 8px;
     border: 1px solid #ffd700;
     background-color: #371c45;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: garamond;
     cursor: pointer;
 }
 
@@ -100,7 +117,7 @@ select, #draw-btn {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(40, 17, 48, 0.71);
     transition: transform 0.3s ease;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: garamond;
     width: 220px;
     overflow: hidden;
 }
@@ -176,3 +193,4 @@ details summary:hover {
         transform: rotateY(0deg) scale(1);
     }
 }
+

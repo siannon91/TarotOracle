@@ -110,6 +110,7 @@ function getTarotImage (card) {
 async function handleDrawSpread() {
     const drawBtn = document.getElementById('draw-btn');
     const deckChoice = document.getElementById('deck-select').value;
+
     
     
     try {
@@ -191,6 +192,7 @@ function goToHome() {
     document.getElementById('home-section').style.display = 'block';
     document.getElementById('spread-section').style.display = 'none';
     document.getElementById('archive-section').style.display = 'none';
+    document.getElementById('spread-container').style.display = 'none';
     resetSpreadToDefault();
 }
 
