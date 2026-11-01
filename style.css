@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-image: url(./img/apertol.bmp);
+    background-image: url(./img/apertol.png);
     background-size: cover;
     max-width: 1000px;
     min-height: 350px;
@@ -26,13 +26,13 @@ header {
 
 @keyframes blink {
     0% {
-        background-image: url(./img/apertol.bmp);
+        background-image: url(./img/apertol.png);
     }
     80% {
-        background-image: url(/img/chiusol.bmp);
+        background-image: url(./img/chiusol.png);
     }
     100% {
-        background-image: url(./img/apertol.bmp);
+        background-image: url(./img/apertol.png);
     }
 }
 
