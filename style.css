@@ -260,7 +260,7 @@ details summary:hover {
     }
 }
 
-#back-to-home-spread {
+#back-to-home-spread, #back-to-home-archive {
     background-color: #f1d63bd7;
     color: #371c45;
     font-family: garamond;
@@ -274,7 +274,7 @@ details summary:hover {
     transition: all 0.1s ease;
 }
 
-#back-to-home-spread:hover {
+#back-to-home-spread:hover, #back-to-home-archive:hover {
     transform: scale(1.05);
     background-color: #371c45;
     color: #f1d63bd7;
